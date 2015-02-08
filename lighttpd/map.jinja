@@ -1,0 +1,26 @@
+{% set lighttpd = salt['grains.filter_by']({
+  'Debian': {
+    'package': 'lighttpd',
+    'service': 'lighttpd',
+    'config' : 'lighttpd.conf',
+    'conf_available': '/etc/lighttpd/conf-available',
+    'conf_enabled': '/etc/lighttpd/conf-enabled',
+    'conf_use_symlink': True,
+  },
+  'Arch': {
+    'package': 'lighttpd',
+    'service': 'lighttpd',
+    'config' : 'lighttpd.conf',
+    'conf_available': '/etc/lighttpd/conf.d',
+    'conf_enabled': '/etc/lighttpd/conf.d',
+    'conf_use_symlink': False,
+  },
+  'RedHat': {
+    'package': 'lighttpd',
+    'service': 'lighttpd',
+    'config' : 'lighttpd.conf',
+    'conf_available': '/etc/lighttpd/conf.d',
+    'conf_enabled': '/etc/lighttpd/conf.d',
+    'conf_use_symlink': False,
+  },
+}, merge=salt['pillar.get']('lighttpd:lookup')) %}
