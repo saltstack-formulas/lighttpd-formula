@@ -1,14 +1,14 @@
 lighttpd:
   lookup:
-		package: lighttpd
+    package: lighttpd
     service: lighttpd
     config : lighttpd.conf
     conf_available: '/etc/lighttpd/conf-available
     conf_enabled: '/etc/lighttpd/conf-enabled
     conf_use_symlink: True
-	modules:
-		enabled:
-			- javascript-alias
+  modules:
+    enabled:
+      - javascript-alias
     disabled:
       - accesslog
       - auth
