@@ -1,0 +1,33 @@
+lighttpd:
+  lookup:
+		package: lighttpd
+    service: lighttpd
+    config : lighttpd.conf
+    conf_available: '/etc/lighttpd/conf-available
+    conf_enabled: '/etc/lighttpd/conf-enabled
+    conf_use_symlink: True
+	modules:
+		enabled:
+			- javascript-alias
+    disabled:
+      - accesslog
+      - auth
+      - cgi
+      - debian-doc
+      - dir-listing
+      - evasive
+      - evhost
+      - expire
+      - extforward
+      - fastcgi
+      - fastcgi-php
+      - flv-streaming
+      - no-www
+      - proxy
+      - rrdtool
+      - simple-vhost
+      - ssi
+      - ssl
+      - status
+      - userdir
+      - usertrack
