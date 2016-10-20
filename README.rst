@@ -59,3 +59,10 @@ Configures the lighttpd package.
 
 Manages the startup and running state of the lighttpd service.
 
+``lighttpd.modules``
+-----------------
+
+Manages the modules via lighty-mods-enable/disable on Debian systems.
+This is pillar driven see pillar.example
+
+
