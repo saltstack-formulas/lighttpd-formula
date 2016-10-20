@@ -26,8 +26,8 @@ documentation file `TOFS_pattern.md`.
     Currently this formula supports Debian and Arch os_family.
     
     TODO:
-    This formula doesn't manage lighttpd configuration modules.
-    maybe something from nginx.ng formula 
+    This formula doesn't manage lighttpd configuration modules on all Systems
+    only Debian is supported. 
 
     See the full `Salt Formulas
     <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_ doc.
