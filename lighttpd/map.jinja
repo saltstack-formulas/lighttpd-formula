@@ -23,4 +23,12 @@
     'conf_enabled': '/etc/lighttpd/conf.d',
     'conf_use_symlink': False,
   },
+  'Suse': {
+    'package': 'lighttpd',
+    'service': 'lighttpd',
+    'config' : 'lighttpd.conf',
+    'conf_available': '/etc/lighttpd/conf.d',
+    'conf_enabled': '/etc/lighttpd/conf.d',
+    'conf_use_symlink': False,
+  },
 }, merge=salt['pillar.get']('lighttpd:lookup')) %}
