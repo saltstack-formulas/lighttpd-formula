@@ -253,7 +253,7 @@ include:
 
 The generalization of this comes with the usage of the macro `files_switch` in all `source` parameters for the `file.managed` function.
 
-```
+''
 ## /srv/saltstack/salt-formulas/ntp-saltstack-formula/ntp/macros.jinja
 {%- macro files_switch(prefix, 
                        files,
@@ -311,6 +311,4 @@ The generalization of this comes with the usage of the macro `files_switch` in a
 {{ url | indent(indent_width, true) }}
     {%- endfor %}  
 {%- endmacro %}
-```
-
-
+''

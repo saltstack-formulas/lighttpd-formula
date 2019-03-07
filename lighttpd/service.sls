@@ -1,19 +1,26 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+#
 # lighttpd.service
 #
 # Manages the lighttpd service.
 
-{% from 'lighttpd/map.jinja' import lighttpd with context %}
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- set sls_config_file = tplroot ~ '.config' %}
+{%- from tplroot ~ '/map.jinja' import lighttpd with context %}
 
 include:
-  - lighttpd.install
+  - {{ sls_config_file }}
   
 lighttpd_service:
   service.running:
     - name: {{ lighttpd.service }}
+    - enable: True
     - require:
-      - sls: lighttpd.install
+      - sls: {{ sls_config_file }}
     - watch:
-      - pkg: lighttpd_install
+      - file: lighttpd_config
 
 # The following states are inert by default and can be used by other states to
 # trigger a restart or reload as needed.

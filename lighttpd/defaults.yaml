@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+lighttpd:
+  package: lighttpd
+  extra_packages: []
+  service: lighttpd
+  config: lighttpd.conf
+  conf_available: /etc/lighttpd/conf.d
+  conf_enabled: /etc/lighttpd/conf.d
+  conf_use_symlink: False
+  modules:
+    enabled: []
+    disabled: []
