@@ -6,6 +6,7 @@
 # Meta-state to fully install lighttpd.
 
 include:
+  - .install
   - .config
   - .service
 
