@@ -1,11 +1,13 @@
 lighttpd:
   lookup:
     package: lighttpd
+    extra_packages: []
     service: lighttpd
     config : lighttpd.conf
     conf_available: '/etc/lighttpd/conf-available
     conf_enabled: '/etc/lighttpd/conf-enabled
     conf_use_symlink: True
+
   modules:
     enabled:
       - javascript-alias
@@ -31,3 +33,24 @@ lighttpd:
       - status
       - userdir
       - usertrack
+
+  tofs:
+    # The files_switch key serves as a selector for alternative
+    # directories under the formula files directory. See TOFS pattern
+    # doc for more info.
+    # Note: Any value not evaluated by `config.get` will be used literally.
+    # This can be used to set custom paths, as many levels deep as required.
+    files_switch:
+      - id
+      - osfinger
+      - os
+      - os_family
+    # All aspects of path/file resolution are customisable using the options below.
+    # This is unnecessary in most cases; there are sensible defaults.
+    # path_prefix: template_alt
+    # dirs:
+    #   files: files_alt
+    #   default: default_alt
+    # files:
+    #   lighttpd_config:
+    #     - '/etc/lighttpd/lighttpd_alt.conf'

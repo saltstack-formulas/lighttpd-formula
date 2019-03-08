@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-                                                                                             
+# vim: ft=yaml
+#
+# Setup variables using grains['os_family'] based logic.
+# You just need to add the key:values for an `os_family` that differ
+# from `defaults.yaml`.
+# Only add an `os_family` which is/will be supported by the formula
+#
+# This file can be safely removed if you do not need to provide defaults via
+# the `os_family` grain.
+---
+Debian:
+  conf_available: /etc/lighttpd/conf-available
+  conf_enabled: /etc/lighttpd/conf-enabled
+  conf_use_symlink: True

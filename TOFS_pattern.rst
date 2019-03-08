@@ -312,5 +312,3 @@ The generalization of this comes with the usage of the macro `files_switch` in a
     {%- endfor %}  
 {%- endmacro %}
 ```
-
-

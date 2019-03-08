@@ -1,10 +1,14 @@
+# -*- coding: utf-8 -*-
+# vim: ft=sls
+#
 # lighttpd
 #
 # Meta-state to fully install lighttpd.
 
 include:
-  - lighttpd.config
-  - lighttpd.service
+  - .install
+  - .config
+  - .service
 
 extend:
   lighttpd_service:

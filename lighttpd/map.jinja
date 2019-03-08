@@ -1,34 +1,19 @@
-{% set lighttpd = salt['grains.filter_by']({
-  'Debian': {
-    'package': 'lighttpd',
-    'service': 'lighttpd',
-    'config' : 'lighttpd.conf',
-    'conf_available': '/etc/lighttpd/conf-available',
-    'conf_enabled': '/etc/lighttpd/conf-enabled',
-    'conf_use_symlink': True,
-  },
-  'Arch': {
-    'package': 'lighttpd',
-    'service': 'lighttpd',
-    'config' : 'lighttpd.conf',
-    'conf_available': '/etc/lighttpd/conf.d',
-    'conf_enabled': '/etc/lighttpd/conf.d',
-    'conf_use_symlink': False,
-  },
-  'RedHat': {
-    'package': 'lighttpd',
-    'service': 'lighttpd',
-    'config' : 'lighttpd.conf',
-    'conf_available': '/etc/lighttpd/conf.d',
-    'conf_enabled': '/etc/lighttpd/conf.d',
-    'conf_use_symlink': False,
-  },
-  'Suse': {
-    'package': 'lighttpd',
-    'service': 'lighttpd',
-    'config' : 'lighttpd.conf',
-    'conf_available': '/etc/lighttpd/conf.d',
-    'conf_enabled': '/etc/lighttpd/conf.d',
-    'conf_use_symlink': False,
-  },
-}, merge=salt['pillar.get']('lighttpd:lookup')) %}
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{#- Get the `tplroot` from `tpldir` #}
+{%- set tplroot = tpldir.split('/')[0] %}
+{#- Start imports as #}
+{%- import_yaml tplroot ~ "/defaults.yaml" or {} as default_settings %}
+{%- import_yaml tplroot ~ "/osfamilymap.yaml" or {} as osfamilymap %}
+
+{%- set defaults = salt['grains.filter_by'](default_settings,
+    default='lighttpd',
+    merge=salt['grains.filter_by'](osfamilymap, grain='os_family',
+          merge=salt['pillar.get']('lighttpd:lookup', default={})
+        )
+) %}
+
+{#- Merge the lighttpd pillar #}
+{%- set lighttpd = salt['pillar.get']('lighttpd', default=defaults, merge=True) %}
+
