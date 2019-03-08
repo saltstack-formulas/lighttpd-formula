@@ -4,8 +4,8 @@ lighttpd:
     extra_packages: []
     service: lighttpd
     config : lighttpd.conf
-    conf_available: '/etc/lighttpd/conf-available
-    conf_enabled: '/etc/lighttpd/conf-enabled
+    conf_available: '/etc/lighttpd/conf-available'
+    conf_enabled: '/etc/lighttpd/conf-enabled'
     conf_use_symlink: True
 
   modules:
