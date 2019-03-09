@@ -9,7 +9,6 @@
 {%- set sls_config_file = tplroot ~ '.config' %}
 {%- set sls_service = tplroot ~ '.service' %}
 {% from tplroot ~ "/map.jinja" import lighttpd with context %}
-{% from tplroot ~ "/macros.jinja" import files_switch with context -%}
 {% set modules = lighttpd.get('modules', {}) %}
 
 ## only debian
