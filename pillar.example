@@ -51,6 +51,6 @@ lighttpd:
     # dirs:
     #   files: files_alt
     #   default: default_alt
-    # files:
+    # source_files:
     #   lighttpd_config:
     #     - '/etc/lighttpd/lighttpd_alt.conf'

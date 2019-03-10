@@ -17,7 +17,7 @@ lighttpd_config:
     - name: /etc/lighttpd/{{ lighttpd.config }}
     - source: {{ files_switch(
                       salt['config.get'](
-                        tplroot ~ ':tofs:files:lighttpd_config',
+                        tplroot ~ ':tofs:source_files:lighttpd_config',
                         ['/etc/lighttpd/lighttpd.conf', '/etc/lighttpd/lighttpd.conf.jinja']
                       )
               ) }}
